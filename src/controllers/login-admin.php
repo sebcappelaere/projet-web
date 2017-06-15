@@ -21,6 +21,9 @@ if($isSubmitted){
     if(count($errors)==0){
         $ok = $login == "admin" && $password == "123";
         if($ok){
+            $_SESSION["role"] = "admin";
+            $_SESSION["userName"] = "Administrateur";
+            
             //Redirection vers la page d'administration
             header("location:index.php?controller=accueil-admin");
         } else {

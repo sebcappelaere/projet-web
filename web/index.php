@@ -1,4 +1,6 @@
 <?php
+//Démarrage de la session
+session_start();
 
 //Récupération du contrôleur
 //avec gestion de la page de défaut
@@ -7,7 +9,21 @@ if(isset($_GET["controller"])){
 } else {
     $controllerName = "accueil";
 }
-//Définition du dossier racine du projet (ici le projet web)
+
+//Sécurisation de l'accès à l'administration
+//Regénération d'un nouvel id de session à chaque fois
+session_regenerate_id(true);
+
+$securedRoutes = ['accueil-admin'];
+$role = isset($_SESSION["role"])?$_SESSION["role"]:"";
+//Si on tente d'acceder à une page sécurisée sans s'être identifié au préalable
+//alors la route est modifiée pour afficher le formulaire de login
+if(in_array($controllerName,$securedRoutes) && $role!="admin"){
+    //$controllerName = "login-admin"; Ici le nom ds l'url ne serait pas modifié
+    header("location:index.php?controller=login-admin");
+}
+
+//Définition du dossier racine du projet (ici le projet-web)
 define("ROOT_PATH",dirname(__DIR__));
 
 //Inclusion de dépendance du projet

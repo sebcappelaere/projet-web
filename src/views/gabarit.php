@@ -31,7 +31,20 @@
                     <li><a href="#">Link</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
+                    <?php
+                        //Récupération du rôle de l'utilisateur
+                        $role=isset($_SESSION["role"])?$_SESSION["role"]:"";
+                        //Récupération du nom de l'utilisateur
+                        $userName=isset($_SESSION["userName"])?$_SESSION["userName"]:"Invité";
+                    ?>
+                    <!-- Dire bonjour à l'utilisateur -->
+                    <li class="navbar-text">Bonjour <?=$userName?></li>
+                    <!-- Affichage du lien connexion/déconnexion -->
+                    <?php if($role=="admin"):?>
+                        <li><a href="index.php?controller=admin-logout">Déconnexion</a></li>
+                    <?php else: ?>
+                        <li><a href="index.php?controller=login-admin">Connexion admin</a></li>
+                    <?php endif; ?>
                 </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
