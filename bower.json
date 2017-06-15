@@ -1,0 +1,22 @@
+{
+  "name": "projet-web",
+  "authors": [
+    "moi <moi@moi.com>"
+  ],
+  "description": "Un projet pour une première approche du développement web moderne",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/dependencies",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
