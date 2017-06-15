@@ -31,3 +31,17 @@ if ($isSubmitted){
     //Redirection pr éviter de reposter les données
     header("location:index.php?controller=accueil-admin");
 }
+
+//Supression d'une compétence
+$itemIndex = filter_input(INPUT_GET,'itemIndex', FILTER_VALIDATE_INT);
+
+if($itemIndex >0){
+    //suppression de la compétence dans le tableau
+     array_splice($data["skills"], $itemIndex-1,1);
+     //Mise à jour de la source de données
+    file_put_contents($filePath, json_encode($data));
+
+    //Redirection pour éviter de reposter les données
+    header("location:index.php?controller=accueil-admin");
+
+}

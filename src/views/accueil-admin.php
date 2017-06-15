@@ -18,10 +18,16 @@
         <th>Compétence</th>
         <th>Action</th>
     </tr>
+    <?php $index=0 ?>
     <?php foreach ($skills as $item): ?>
         <tr>
             <td><?=$item?></td>
-            <td></td>
+            <td>
+                <a href="index.php?controller=accueil-admin&itemIndex=<?=++$index?>" class="btn btn-default">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    Supprimer
+                </a>
+            </td>
         </tr>
     <?php endforeach; ?>
 </table>
