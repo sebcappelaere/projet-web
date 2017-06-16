@@ -1,0 +1,48 @@
+{
+    "quiz": [
+
+        {
+            "question": "Que veut dire PHP",
+            "answers": [
+                "Pacte Herculéen des Pachidermes",
+                "Pauvre Hercule Paralytique",
+                "Personal HomePage"
+            ],
+            "goodAnswer": 3
+        },
+
+        {
+            "question": "Qui a inventé PHP",
+            "answers": [
+                "Bill Gates",
+                "Steve Jobs",
+                "Le Diable",
+                "Rasmus Lerdorf"
+            ],
+            "goodAnswer": 4
+        },
+
+        {
+            "question": "Java est un langage",
+            "answers": [
+                "Compilé",
+                "compliqué",
+                "juste con"
+            ],
+            "goodAnswer": 1
+        },
+
+        {
+            "question": "LAMP veut dire",
+            "answers": [
+                "Les Apaches Montent sur Paris",
+                "Linux Apache MySQL PHP",
+                "Guéridon en anglais",
+                "Larbin Aject à la Musculature Pathétique"
+            ],
+            "goodAnswer": 2
+        }
+
+    ]
+
+}
