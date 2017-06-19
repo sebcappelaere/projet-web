@@ -1,0 +1,36 @@
+{
+    "quiz":
+    [
+        {
+            "question" : "Quel pays a remporté la coupe du monde de football en 2014?",
+            "reponses" : [
+                "L'Allemagne",
+                "L'Italie",
+                "Le Brésil",
+                "L'Argentine"
+            ],
+            "bonneReponse" : 1
+        },
+        {
+            "question" : "A qui doit-on la chanson 'I shot the Sheriff' ?",
+            "reponses" : [
+                "UB 40",
+                "Jim Morrison",
+                "Bob Marley",
+                "Eric Clapton"
+            ],
+            "bonneReponse" : 3
+        },
+        {
+            "question" : "Dans quel pays peut-on trouver la Catalogne, l'Andalousie et la Castille ?",
+            "reponses" :[
+                "L'Espagne",
+                "La France",
+                "Le Portugal",
+                "L'Italie"
+            ],
+            "bonneReponse" : 1
+        }
+        
+    ]
+}
