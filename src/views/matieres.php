@@ -1,13 +1,15 @@
-<h1>Liste des matières enseignées</h1>
+<div class="well" style="text-align:center">
+    <h1>Liste des matières enseignées</h1>
+</div>
 
-<button class="btn btn-primary" name"ajout" type="submit">Ajouter une nouvelle matière</button>
+<a  href="index.php?controller=matiere-form" class="btn btn-primary">Ajouter une nouvelle matière</a>
 <p></p>
 
-<div class= "col-md-6">
+<div class= "col-md-6 col-md-offset-3" style="text-align:center">
     <table class="table table-bordered table-striped">
         <tr>
-            <th>Matières</th>
-            <th colspan=2>Action</th>
+            <th style="text-align:center">Matières</th>
+            <th style="text-align:center">Action</th>
         <?php $index=0 ?>
         <?php foreach ($listeMatieres as $item): ?>
             <tr>
@@ -17,9 +19,9 @@
                         <i class="glyphicon glyphicon-trash"></i>
                         Supprimer
                     </a>
-                </td>
-                <td>
-                    <a href="index.php?controller=matiere-modif&id=<?=$item["matiere_id"]?>" class="btn btn-primary">Modifier
+                    <a href="index.php?controller=matiere-form&id=<?=$item["matiere_id"]?>" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                        Modifier
                     </a>
                     
                 </td>

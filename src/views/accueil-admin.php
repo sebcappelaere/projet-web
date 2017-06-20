@@ -1,5 +1,6 @@
-<h1>Bienvenue sur la page Administrateur</h1>
-
+<div class="well" style="text-align:center">
+    <h1>Bienvenue sur la page Administrateur</h1>
+</div>
 
 <form method="post" class="form-inline">
     <h2>Nouvelle Compétence</h2>
