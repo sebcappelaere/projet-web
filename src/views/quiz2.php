@@ -1,3 +1,7 @@
+<div class="well" style="text-align:center">
+    <h1>Quiz</h1>
+</div>
+
 <!-- Affichage des questions -->
 <form method="post">
     <?php $questionIndex = 0; ?>
@@ -14,16 +18,16 @@
                     <label>
                         <!-- Affichage de la réponse -->
                         <input
-                            type="radio"
-                            name="userAnswers[<?= $questionIndex ?>]"
+                                type="radio"
+                                name="userAnswers[<?= $questionIndex ?>]"
                             <?php
-                                $answerIndex++;
-                                //Si réponse de l'utilisateur, il faut précocher le bouton radio
-                                if(isset($userAnswers[$questionIndex]) && $userAnswers[$questionIndex] ==$answerIndex){
-                                    echo " checked ";
-                                }
+                            $answerIndex++;
+                            //Si réponse de l'utilisateur, il faut précocher le bouton radio
+                            if(isset($userAnswers[$questionIndex]) && $userAnswers[$questionIndex] ==$answerIndex){
+                                echo " checked ";
+                            }
                             ?>
-                            value="<?= $answerIndex ?>"
+                                value="<?= $answerIndex ?>"
                         >
                         <?= $answer ?>
                     </label>

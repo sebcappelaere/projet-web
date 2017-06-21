@@ -10,17 +10,22 @@ if(isset($_GET["controller"])){
     $controllerName = "accueil";
 }
 
-//Sécurisation de l'accès à l'administration
+//Sécurisation de l'accès aux utilisateurs authorisés
 //Regénération d'un nouvel id de session à chaque fois
 session_regenerate_id(true);
 
-$securedRoutes = ['accueil-admin'];
+$securedRoutes = [
+    'accueil-admin' => 'ADMIN',
+    'accueil-formateur' => 'FORMATEUR',
+    'accueil-stagiaire' => 'STAGIAIRE'
+];
 $role = isset($_SESSION["role"])?$_SESSION["role"]:"";
 //Si on tente d'acceder à une page sécurisée sans s'être identifié au préalable
 //alors la route est modifiée pour afficher le formulaire de login
-if(in_array($controllerName,$securedRoutes) && $role!="admin"){
-    //$controllerName = "login-admin"; Ici le nom ds l'url ne serait pas modifié
-    header("location:index.php?controller=login-admin");
+if (array_key_exists($controllerName, $securedRoutes) && $role != $securedRoutes[$controllerName]) {
+    $_SESSION["flash"] = "Vous n'avez pas les droits pour accéder à cette page, veuillez vous identifier";
+    //$controllerName = "login"; Ici le nom ds l'url ne serait pas modifié
+    header("location:index.php?controller=login");
 }
 
 //Définition du dossier racine du projet (ici le projet-web)

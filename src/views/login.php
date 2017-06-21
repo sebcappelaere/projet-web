@@ -1,3 +1,7 @@
+<div class="well" style="text-align:center">
+    <h1>Identification</h1>
+</div>
+
 <!-- Affichage des erreurs -->
 <?php if(count($errors)>0): ?>
     <div class="alert alert-danger">

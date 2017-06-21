@@ -27,7 +27,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="index.php?controller=inscription-form">Inscription <span
+                                    class="sr-only">(current)</span></a></li>
                     <li><a href="index.php?controller=quiz2">Quiz 2</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -38,12 +39,12 @@
                         $userName=isset($_SESSION["userName"])?$_SESSION["userName"]:"Invité";
                     ?>
                     <!-- Dire bonjour à l'utilisateur -->
-                    <li class="navbar-text">Bonjour <?=$userName?></li>
+                    <li class="navbar-text" style="color:blue">Bonjour <?= $userName ?></li>
                     <!-- Affichage du lien connexion/déconnexion -->
-                    <?php if($role=="admin"):?>
+                    <?php if ($role == "ADMIN"): ?>
                         <li><a href="index.php?controller=admin-logout">Déconnexion</a></li>
                     <?php else: ?>
-                        <li><a href="index.php?controller=login-admin">Connexion admin</a></li>
+                        <li><a href="index.php?controller=login">Connexion</a></li>
                     <?php endif; ?>
                 </ul>
                 </div><!-- /.navbar-collapse -->
