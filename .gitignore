@@ -1,2 +1,4 @@
 web/dependencies/*
 .idea/*
+/vendor/
+/logs/*

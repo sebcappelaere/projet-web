@@ -1,4 +1,6 @@
 <?php
+use m2i\web\User;
+
 /**
 @param string $view : le nom de la vue
 @param array $data : un tableau des données passées à la vue
@@ -49,4 +51,35 @@ function getPDO(){
     ];
 
     return new PDO(DSN,DB_USER,DB_PASS, $options);
+}
+
+/**
+ * Fonction d'auto chargement des classes utilisée par spl_autoload_register
+ * @param $className
+ * @throws Exception
+ */
+function autoloader($className){
+    $path = ROOT_PATH."/src/classes/{$className}.php";
+    if(file_exists($path)){
+        require_once $path;
+    } else {
+        throw new Exception("Le fichier $path ne peut être chargé");
+    }
+}
+
+/**
+ * Retourne l'utilisateur authentifier
+ * @return User
+ */
+function getUser(){
+    if(isset($_SESSION["user"])){
+        $user = unserialize($_SESSION["user"]);
+    } else {
+        $user = new User();
+        //Utilisateur par défaut
+        $user->setUserName("Invité")->setRole("GUEST");
+        $_SESSION["user"] = serialize($user);
+    }
+
+    return $user;
 }

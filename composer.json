@@ -1,0 +1,15 @@
+{
+    "name": "m2i/projet-web",
+    "description": "Un projet web pour expérimenter PHP",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "katzgrau/klogger": "^1.2",
+        "gabordemooij/redbean": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "m2i\\web\\": "src/classes/"
+        }
+    }
+}

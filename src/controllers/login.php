@@ -1,4 +1,6 @@
 <?php
+use m2i\web\User;
+
 //Initialisation du tableau des erreurs
 $errors = [];
 
@@ -21,18 +23,11 @@ if($isSubmitted){
     if(count($errors)==0){
         //Connexion à la base de données pour vérifier l'authentification
         $connexion = getPDO();
-        $sql = "SELECT CONCAT_WS(' ',p.prenom,p.nom) as username,u.role_utilisateur 
-                FROM utilisateurs as u INNER JOIN personnes as p ON p.personne_id=u.personne_id 
-                WHERE u.email=? AND u.mot_de_passe=?";
-        $stm = $connexion->prepare($sql);
-        $stm->execute([$login, sha1($password)]);
-        $rs = $stm->fetch(PDO::FETCH_ASSOC);
+        $user = new User();
 
-        $ok = count($rs) > 0;
-
-        if($ok){
-            $_SESSION["role"] = $rs["role_utilisateur"];
-            $_SESSION["userName"] = $rs["username"];
+        if($user->loadUser($connexion, $login, $password)){
+            //Stockage de l'utilisateur en session
+            $_SESSION["user"] = serialize($user);
 
             $redirections = [
                 "ADMIN" => "accueil-admin",
@@ -40,7 +35,7 @@ if($isSubmitted){
                 "FORMATEUR" => "accueil-formateur"
             ];
 
-            $cible = $redirections[$rs["role_utilisateur"]] ?? "accueil";
+            $cible = $redirections[$user->getRole()] ?? "accueil";
 
             //Redirection
             header("location:index.php?controller=$cible");

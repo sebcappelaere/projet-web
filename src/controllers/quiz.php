@@ -2,9 +2,14 @@
 //Récupération des données du fichier json
 $filePath = ROOT_PATH. '/src/data/quiz.json';
 $data = json_decode(file_get_contents($filePath),true);
-//var_dump($data);
 $quiz = $data['quiz'];
-//var_dump($quiz);
+
+//Récupération des réponses de l'utilisateur
+
+
+
+
+
 $questions = $quiz[0];
 var_dump($questions);
 var_dump($questions['question']);
